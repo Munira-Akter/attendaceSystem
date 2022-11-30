@@ -3,11 +3,14 @@ import AdminAttendance from "../Model/AdminAttendance.js"
 import { addMinutes, isAfter } from 'date-fns'
 
 
+/**
+ * @method GET
+ * @param {errorHandler} next
+ * Step 1 - Check Any Attendance Is Active Or Not
+ * Step 2 - If active check TimeLimit
+ * Step 3 - Enable new Attendance for 5 mins By Admin
+ */
 export const enableAttendanceForStudent  = async (_req,res,next)=>{
-    /**
-    * Step 1 - Check Any Attendance Is Active Or Not
-    * Step 2 - Create new Attendance for 5 mins
-    */
     try {
         const attendance = await AdminAttendance.findOne({status : 'RUNNING'})
         if(attendance){
@@ -30,6 +33,12 @@ export const enableAttendanceForStudent  = async (_req,res,next)=>{
         next(error)
     }
 }
+
+/**
+ * @method GET
+ * @param {errorHandler} next
+ * @logic Disabled Attendance By Admin
+ */
 
 export const disableAttendanceForStudent = async (_req,res,next) =>{
     try {
