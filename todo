@@ -1,0 +1,25 @@
+- Make Models 
+    	- User
+            - name 
+            - email
+            - username 
+            - password
+            - role
+            - accountStatus
+
+        - Profile
+                - phone
+                - avatar
+                - userId
+                - Full name
+
+        - adminAttendance
+                - userId
+                - createdAt
+                - status
+                - timeLimit
+
+        - studentAttendance
+                - userId
+                - adminAttendanceId
+                - CreatedAt
